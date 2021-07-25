@@ -3,7 +3,7 @@ FROM openjdk:8-jre-alpine
 LABEL maintainer="Simon Leigh <giveit@gmail.com>" \
     org.opencontainers.image.authors="Simon Leigh" \
     org.opencontainers.image.description="An application consisting of a RESTful service implementation and OpenTelemetry." \
-    org.opencontainers.image.source="https://github.com/sleighzy/useful-project-templates/java/java-restful-service" \
+    org.opencontainers.image.source="https://github.com/sleighzy/random-project-templates/java/java-restful-service" \
     org.opencontainers.image.title="java-restful-service" \
     org.opencontainers.image.vendor="Simon Leigh"
 
