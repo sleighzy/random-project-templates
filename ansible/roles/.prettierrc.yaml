@@ -1,0 +1,5 @@
+proseWrap: "always"
+overrides:
+  - files: ["**/*.yml", "**/*.yaml"]
+    options:
+      proseWrap: "never"

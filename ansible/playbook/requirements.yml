@@ -1,0 +1,8 @@
+# Ansible role to Apache ZooKeeper
+# from Ansible Galaxy
+- src: sleighzy.zookeeper
+
+# from GitHub, overriding the name and specifying a specific tag
+- src: https://github.com/sleighzy/ansible-zookeeper
+  version: 1.2.1
+  name: sleighzy.zookeeper

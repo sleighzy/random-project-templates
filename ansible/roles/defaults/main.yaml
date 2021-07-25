@@ -1,0 +1,5 @@
+---
+promtail_user: centos
+promtail_group: centos
+promtail_loki_server: http://loki-server/api/prom/push
+promtail_log_file: /var/logs/app/app.log

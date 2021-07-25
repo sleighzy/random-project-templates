@@ -1,0 +1,40 @@
+---
+- name: Prepare
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Install initscripts needed for initd service script
+      yum:
+        name: initscripts
+        state: installed
+
+    - name: Ensure 'wheel' group exists for passwordless sudo
+      group:
+        name: wheel
+        state: present
+
+    - name: Allow 'wheel' group to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: "^%wheel"
+        line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+        validate: visudo -cf %s
+
+    - name: Ensure group exists
+      group:
+        name: promtail
+        state: present
+
+    - name: Ensure user exists
+      user:
+        name: promtail
+        state: present
+        group: promtail
+
+    - name: Add user to 'wheel' group for passwordless sudo
+      user:
+        name: promtail
+        groups: wheel
+        append: yes

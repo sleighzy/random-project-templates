@@ -1,0 +1,8 @@
+zookeeper-1 ansible_connection=ssh ansible_user=ubuntu
+zookeeper-2 ansible_connection=ssh ansible_user=ubuntu
+zookeeper-3 ansible_connection=ssh ansible_user=ubuntu
+
+[zookeeper-nodes]
+zookeeper-1 zookeeper_id=1
+zookeeper-2 zookeeper_id=2
+zookeeper-3 zookeeper_id=3

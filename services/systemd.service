@@ -1,0 +1,34 @@
+# /usr/lib/systemd/system/logstash.service
+[Unit]
+Description=logstash
+
+[Service]
+Type=simple
+
+# The "logstash" user and group must have read access to the logs to be ingested.
+User=logstash
+Group=logstash
+
+# Load env vars from /etc/default/ and /etc/sysconfig/ if they exist.
+# Prefixing the path with '-' makes it try to load, but if the file doesn't
+# exist, it continues onward.
+EnvironmentFile=-/etc/default/logstash
+EnvironmentFile=-/etc/sysconfig/logstash
+
+# This will expose the JMX metrics from Kafka producer used for streaming the logs
+# using the Logstash Kafka output plugin. Note that the Prometheus JMX exporter
+# and associated configuration file need to deployed separately as they are not part
+# of Logstash. The JMX metrics below can be scraped at http://logstash-host:7090/metrics
+Environment='LS_JAVA_OPTS=-javaagent:/opt/jmx-exporter/jmx_prometheus_javaagent-0.11.0.jar=7090:/etc/jmx-exporter/kafka-2_0_0.yml'
+
+# The "--pipeline.workers 1" argument is required to avoid cases where log events cannot be consumed in parallel
+# as maintaining the exact order of the events is needed for other processing.
+ExecStart=/usr/share/logstash/bin/logstash "--path.settings" "/etc/logstash" "--path.config" "/etc/logstash/conf.d" "--pipeline.workers" "1"
+
+Restart=always
+WorkingDirectory=/
+Nice=19
+LimitNOFILE=16384
+
+[Install]
+WantedBy=multi-user.target

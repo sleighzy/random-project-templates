@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Simon Leigh
+  description: Installs Promtail and service for reading logs and pushing to a Loki server.
+  company: Orion Health
+  license: Orion Health
+  min_ansible_version: 2.7
+  platforms:
+    - name: Centos
+      versions:
+        - 6
+    - name: RHEL
+      versions:
+        - 6

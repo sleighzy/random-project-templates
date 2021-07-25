@@ -1,0 +1,97 @@
+#!/bin/bash
+#
+# /etc/rc.d/init.d/promtail
+#
+# chkconfig: 2345 60 40
+#
+# pidfile: /var/run/promtail.pid
+
+# Source function library.
+. /etc/init.d/functions
+
+
+RETVAL=0
+PROG="promtail"
+DAEMON_SYSCONFIG=/etc/sysconfig/${PROG}
+DAEMON=/usr/bin/${PROG}
+PID_FILE=/var/run/${PROG}.pid
+LOCK_FILE=/var/lock/subsys/${PROG}
+LOG_FILE=/var/log/promtail/${PROG}.log
+DAEMON_USER="{{ promtail_user }}"
+
+. ${DAEMON_SYSCONFIG}
+
+start() {
+  if check_status > /dev/null; then
+    echo "${PROG} is already running"
+    exit 0
+  fi
+
+  echo -n $"Starting ${PROG}: "
+  daemon --user ${DAEMON_USER} --check ${PROG} --pidfile ${PID_FILE} "sudo nohup ${DAEMON} $ARGS >> ${LOG_FILE} 2>&1 &"
+  RETVAL=$?
+  if [ $RETVAL = 0 ]; then
+    local n=0 pid
+    while [ $n -lt 5 ]; do
+      pid=$(pidofproc ${DAEMON})
+      if [ ! -z "${pid}" ]; then
+        echo "${pid}" > ${PID_FILE}
+        break
+      fi
+      n=$(expr ${n} + 1)
+      sleep 1
+    done
+    touch ${LOCK_FILE}
+  fi
+  echo
+  return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping ${PROG}: "
+    killproc -p ${PID_FILE} -d 10 ${DAEMON}
+    RETVAL=$?
+    echo
+    [ $RETVAL = 0 ] && rm -f ${LOCK_FILE} ${PID_FILE}
+    return $RETVAL
+}
+
+reload() {
+    echo -n $"Reloading ${PROG}: "
+    killproc -p ${PID_FILE} ${DAEMON} -1
+    RETVAL=$?
+    echo
+    return $RETVAL
+}
+
+check_status() {
+    status -p ${PID_FILE} -l ${LOCK_FILE} ${DAEMON}
+    RETVAL=$?
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        check_status
+        ;;
+    reload)
+        reload
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        N=/etc/init.d/${NAME}
+        echo "Usage: $N {start|stop|status|restart|reload}" >&2
+        RETVAL=2
+        ;;
+esac
+
+exit ${RETVAL}

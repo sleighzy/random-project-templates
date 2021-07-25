@@ -1,0 +1,74 @@
+---
+- name: Ensure user and group exist
+  block:
+    - name: Ensure group exists
+      group:
+        name: "{{ promtail_group }}"
+        state: present
+
+    - name: Ensure user exists
+      user:
+        name: "{{ promtail_user }}"
+        state: present
+        group: "{{ promtail_group }}"
+
+  tags:
+    - promtail_user_and_group
+
+- name: Install Promtail binary and configuration
+  block:
+    - name: Create directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ promtail_user }}"
+        group: "{{ promtail_user }}"
+        mode: 0755
+      with_items:
+        - /etc/promtail
+        - /var/lib/promtail
+        - /var/log/promtail
+
+    - name: Install Promtail binary
+      copy:
+        src: files/promtail
+        dest: /usr/bin/promtail
+        owner: root
+        group: root
+        mode: 0755
+
+    - name: Template Promtail configuration
+      template:
+        src: config.yaml.j2
+        dest: /etc/promtail/config.yaml
+      notify:
+        - Restart Promtail service
+
+  tags:
+    - promtail_install_binary
+
+- name: Install Promtail service
+  block:
+    - name: Template initd service file
+      template:
+        src: promtail.j2
+        dest: /etc/init.d/promtail
+        owner: root
+        group: root
+        mode: 0755
+
+    - name: Copy sysconfig
+      copy:
+        src: files/promtail.conf
+        dest: /etc/sysconfig/promtail
+        owner: root
+        group: root
+
+    - name: Start the Promtail service and enable to start on boot
+      service:
+        name: promtail
+        state: started
+        enabled: True
+
+  tags:
+    - promtail_install_service

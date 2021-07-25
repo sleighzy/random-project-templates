@@ -1,0 +1,6 @@
+# mkcert is a simple tool for making locally-trusted development certificates
+# https://github.com/FiloSottile/mkcert
+brew "mkcert"
+
+# Required to install certificates into Firefox's trust store
+brew "nss"

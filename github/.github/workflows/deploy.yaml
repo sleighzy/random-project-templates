@@ -1,0 +1,95 @@
+---
+name: deploy
+
+#
+# Documentation:
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+#
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get tags
+        id: get_tag
+        run: |
+          echo "::set-output name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-7)" && \
+          echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
+
+      - name: Pull golang-http template
+        uses: docker://openfaas/faas-cli:latest-root
+        with:
+          args: template store pull golang-http
+
+      - name: Run shrinkwrap build
+        uses: docker://openfaas/faas-cli:latest-root
+        with:
+          args: build -f slack.yml --shrinkwrap
+
+      - name: Retrieve Go dependencies
+        run: |
+          cd build/slack
+          sudo go mod vendor
+
+      - name: Login to Docker registry
+        if: success()
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ secrets.DOCKER_REGISTRY }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build the OpenFaaS function and push to Docker registry
+        uses: docker/build-push-action@v2
+        with:
+          context: ./build/slack/
+          file: ./build/slack/Dockerfile
+          build-args: GO111MODULE=on
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          push: true
+          labels: org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/openfaas-slack
+          tags: |
+            ${{ secrets.DOCKER_REGISTRY }}/openfaas/slack:latest
+            ${{ secrets.DOCKER_REGISTRY }}/openfaas/slack:${{ steps.get_tag.outputs.GITHUB_SHA_SHORT }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Get tags
+        id: get_tag
+        run: |
+          echo "::set-output name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-7)"
+
+      - name: Login to OpenFaaS Gateway
+        uses: docker://openfaas/faas-cli:latest-root
+        with:
+          args: login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} -g ${{ secrets.OPENFAAS_GATEWAY }}
+
+      - name: Deploy the function
+        uses: docker://openfaas/faas-cli:latest-root
+        with:
+          args: |
+            deploy \
+              --gateway ${{ secrets.OPENFAAS_GATEWAY }} \
+              --image ${{ secrets.DOCKER_REGISTRY }}/openfaas/slack:${{ steps.get_tag.outputs.GITHUB_SHA_SHORT }} \
+              --tag sha \
+              --name slack \
+              --env SLACK_CHANNEL=${{ secrets.SLACK_CHANNEL }} \
+              --env SLACK_DEBUG=${{ secrets.SLACK_DEBUG }} \
+              --env SLACK_LOGLEVEL=${{ secrets.SLACK_LOGLEVEL }} \
+              --secret slack-api-token

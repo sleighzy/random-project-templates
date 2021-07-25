@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Use Python virtual environment to install dependencies
+virtualenv --python=python3 --quiet .venv
+# shellcheck disable=SC1091
+source .venv/bin/activate
+
+# Install Ansible dependencies
+pip3 install --upgrade pip --quiet
+pip3 install -r requirements.txt --quiet
+
+# Install the Ansible role to be run
+ansible-galaxy install -r requirements.yml --ignore-errors --force
+
+# Run the playbook to install and configure Apache ZooKeeper
+ansible-playbook -i inventory/ playbook.yaml

@@ -1,0 +1,10 @@
+.DS_Store
+
+# Python dependencies and virtual environment files
+.Python
+bin/
+include/
+lib/
+share/
+
+**/__pycache__

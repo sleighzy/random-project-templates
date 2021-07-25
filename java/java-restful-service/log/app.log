@@ -1,0 +1,95 @@
+17:32:52.952 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - GET /orders/:id
+17:32:52.965 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Retrieving order for id: 1
+17:32:52.982 [grizzly-http-server-1,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - GET /orders
+17:32:52.983 [grizzly-http-server-1,,] INFO  io.sleighzy.orders.service.OrdersService - Retrieving orders
+17:32:53.064 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - [{"id":"1","userId":null,"productId":null,"status":null,"createdAt":null,"updatedAt":null},{"id":"2","userId":null,"productId":null,"status":null,"createdAt":null,"updatedAt":null}]
+17:32:53.164 [grizzly-http-server-0,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory
+17:32:53.165 [grizzly-http-server-0,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving all inventory
+17:39:06.035 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - GET /orders/:id
+17:39:06.045 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Retrieving order for id: 1
+17:39:06.063 [grizzly-http-server-1,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - GET /orders
+17:39:06.063 [grizzly-http-server-1,,] INFO  io.sleighzy.orders.service.OrdersService - Retrieving orders
+17:39:06.130 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - [{"id":"1","userId":null,"productId":null,"status":null,"createdAt":null,"updatedAt":null},{"id":"2","userId":null,"productId":null,"status":null,"createdAt":null,"updatedAt":null}]
+17:39:06.229 [grizzly-http-server-0,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory
+17:39:06.229 [grizzly-http-server-0,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving all inventory
+05:40:17.525 [grizzly-http-server-0,cd192bc3ec96c2b8201dccac3d3cfdee,f0d57b79600a0984] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+05:40:17.578 [grizzly-http-server-0,cd192bc3ec96c2b8201dccac3d3cfdee,e8339501786e5652] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+05:40:17.850 [grizzly-http-server-1,92e22b5883fb6a8930cd7265d595ef63,c9c611ae4ed4bdc0] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+05:40:17.861 [grizzly-http-server-1,92e22b5883fb6a8930cd7265d595ef63,bdb476f69be0afab] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+05:40:17.985 [grizzly-http-server-0,cd192bc3ec96c2b8201dccac3d3cfdee,e8339501786e5652] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:11:50.271 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:11:50.294 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:11:50.434 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:11:50.447 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:11:50.527 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:11:57.507 [grizzly-http-server-2,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:11:57.510 [grizzly-http-server-2,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:11:57.553 [grizzly-http-server-4,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:11:57.554 [grizzly-http-server-4,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:11:57.559 [grizzly-http-server-2,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:23:00.066 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:23:00.086 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:23:00.236 [grizzly-http-server-2,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:23:00.244 [grizzly-http-server-2,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:23:00.329 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:27:46.868 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:27:46.887 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:27:47.019 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:27:47.026 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:27:47.096 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:32:23.624 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:32:23.645 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:32:23.781 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:32:23.791 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:32:23.859 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:38:51.004 [grizzly-http-server-0,f88bfd1a06ac85a25fd57dc060da91b6,839243ccb7ed5ed5] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:38:51.060 [grizzly-http-server-0,f88bfd1a06ac85a25fd57dc060da91b6,228f1c60f11f4d6c] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:38:51.317 [grizzly-http-server-2,f88bfd1a06ac85a25fd57dc060da91b6,eee60754cb98c08a] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:38:51.330 [grizzly-http-server-2,f88bfd1a06ac85a25fd57dc060da91b6,4a02e0525afc287d] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:38:51.445 [grizzly-http-server-0,f88bfd1a06ac85a25fd57dc060da91b6,228f1c60f11f4d6c] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:38:57.379 [grizzly-http-server-1,7f71aafbbd2fa69d8893b4a677102b30,c897413d383cd338] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:38:57.382 [grizzly-http-server-1,7f71aafbbd2fa69d8893b4a677102b30,3b925fc3fe76edb5] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:38:57.418 [grizzly-http-server-3,7f71aafbbd2fa69d8893b4a677102b30,b8d03a4ecee6b300] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:38:57.420 [grizzly-http-server-3,7f71aafbbd2fa69d8893b4a677102b30,01049e1afe008fd4] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:38:57.426 [grizzly-http-server-1,7f71aafbbd2fa69d8893b4a677102b30,3b925fc3fe76edb5] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:40:00.707 [grizzly-http-server-0,fdc7ee6eb4a1f02e38e629e53046d0fc,7c9c48faae3b2102] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:40:00.761 [grizzly-http-server-0,fdc7ee6eb4a1f02e38e629e53046d0fc,8fdcbe82443794d1] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:40:01.060 [grizzly-http-server-1,fdc7ee6eb4a1f02e38e629e53046d0fc,0fb54ba4d1f43c75] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:40:01.071 [grizzly-http-server-1,fdc7ee6eb4a1f02e38e629e53046d0fc,92377bafab1429ff] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:40:01.177 [grizzly-http-server-0,fdc7ee6eb4a1f02e38e629e53046d0fc,8fdcbe82443794d1] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:42:24.010 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:42:24.037 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:42:24.191 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:42:24.199 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:42:24.274 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:42:58.758 [grizzly-http-server-2,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:42:58.760 [grizzly-http-server-2,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:42:58.798 [grizzly-http-server-3,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:42:58.800 [grizzly-http-server-3,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:42:58.805 [grizzly-http-server-2,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:46:31.352 [grizzly-http-server-0,920b04cc3edafc01948e18739b8b7b86,917173b90ee0f846] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:46:31.421 [grizzly-http-server-0,920b04cc3edafc01948e18739b8b7b86,641c672ad9989d27] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:46:31.656 [grizzly-http-server-1,920b04cc3edafc01948e18739b8b7b86,2c01594f4eb7e541] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:46:31.665 [grizzly-http-server-1,920b04cc3edafc01948e18739b8b7b86,26fc1b1916c6ec53] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:46:31.765 [grizzly-http-server-0,920b04cc3edafc01948e18739b8b7b86,641c672ad9989d27] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:52:42.031 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:52:42.054 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:52:42.193 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:52:42.201 [grizzly-http-server-1,,] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:52:42.269 [grizzly-http-server-0,,] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:57:52.352 [grizzly-http-server-0,97b5a482d6195dad285c459824f2d1bf,f7253bb6bbd911af] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:57:52.407 [grizzly-http-server-0,97b5a482d6195dad285c459824f2d1bf,7e5b5a09c49b5280] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:57:52.660 [grizzly-http-server-1,97b5a482d6195dad285c459824f2d1bf,a13d55027fe8181e] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:57:52.671 [grizzly-http-server-1,97b5a482d6195dad285c459824f2d1bf,ee971264cc16f935] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:57:52.787 [grizzly-http-server-0,97b5a482d6195dad285c459824f2d1bf,7e5b5a09c49b5280] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+06:59:28.345 [grizzly-http-server-0,009b4bc7c38f8fb7dd2656239436013d,b41305a3088a42a6] INFO  io.sleighzy.orders.rest.impl.OrdersResource - POST /orders
+06:59:28.402 [grizzly-http-server-0,009b4bc7c38f8fb7dd2656239436013d,dc998fb88f47a3aa] INFO  io.sleighzy.orders.service.OrdersService - Creating order
+06:59:28.645 [grizzly-http-server-2,009b4bc7c38f8fb7dd2656239436013d,ccf5f5fbd0b3269a] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+06:59:28.653 [grizzly-http-server-2,009b4bc7c38f8fb7dd2656239436013d,f0cdc95ef6dae6f6] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+06:59:28.762 [grizzly-http-server-0,009b4bc7c38f8fb7dd2656239436013d,dc998fb88f47a3aa] INFO  io.sleighzy.orders.service.OrdersService - Inventory(id=1)
+07:12:49.895 [grizzly-http-server-0,f98af998e4a16f03c558c0f6c07fabb8,92e0c5627e5017a3] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory/:id
+07:12:49.958 [grizzly-http-server-0,f98af998e4a16f03c558c0f6c07fabb8,5aab4bba0860e6b2] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving inventory for id: 1
+07:13:03.956 [grizzly-http-server-2,86fc01c440c29db87806fab844bbdd50,23a827e806b213a4] INFO  io.sleighzy.orders.rest.impl.OrdersResource - GET /orders
+07:13:03.958 [grizzly-http-server-2,86fc01c440c29db87806fab844bbdd50,1695479799f42130] INFO  io.sleighzy.orders.service.OrdersService - Retrieving orders
+07:13:11.183 [grizzly-http-server-3,e10d087b465d417ef4f4edad625abf17,1084f338355ebe3e] INFO  io.sleighzy.inventory.rest.impl.InventoryResource - GET /inventory
+07:13:11.185 [grizzly-http-server-3,e10d087b465d417ef4f4edad625abf17,8c375d6435c402f9] INFO  io.sleighzy.inventory.service.InventoryService - Retrieving all inventory

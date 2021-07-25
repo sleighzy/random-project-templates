@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    promtail_group: promtail
+    promtail_user: promtail
+  roles:
+    - role: ansible-promtail
