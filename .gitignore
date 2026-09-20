@@ -1,1 +1,4 @@
 .DS_Store
+
+/java/java-restful-service/target/
+/java/java-restful-service/log/
