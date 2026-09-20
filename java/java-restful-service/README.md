@@ -4,7 +4,7 @@ An example Java application consisting of two services.
 
 ## Building and Running
 
-Run the below command to compile, run the tests, and build the Docker image.
+Run the below command to compile, run the tests.
 
 ```sh
 mvn clean package
@@ -17,11 +17,11 @@ the provided script.
 ./entrypoint.sh
 ```
 
-The application can be run as a Docker container using the provided Docker
-Compose file.
+The application can be run as a Docker container by building the image using the
+below command.
 
 ```sh
-docker-compose up -d
+docker build -t java-restful-service:1.0-SNAPSHOT .
 ```
 
 ## Making Service Calls
@@ -66,18 +66,15 @@ Content-Type: application/json
 
 ## Integration with OpenTelemetry
 
-The Docker Compose file contains services for the OpenTelemetry Collector and
-Jaeger to collect and visualise the traces produced by the service calls. The
-`docker-compose.yaml` file needs to be updated to set the
-`OTEL_JAVAAGENT_ENABLED` environment variable to `true` so that the Java agent
-to send traces to the collector is started. The below command will run the
-application and start the additional services.
+The services in the application are instrumented with OpenTelemetry, allowing
+for distributed tracing and metrics collection. To run this in a development
+environment, you can use the provided Docker Compose setup.
 
-```sh
-docker-compose up -d --profile opentelemetry
-```
+For a quick start with OpenTelemetry using Grafana Tempo and the Grafana
+observability stack, refer to the [Quick Start for Tempo] to stand up the Docker
+stack. The container deployment information in this project's [Docker Compose
+file] can be copied into the Docker Compose file used for the Grafana stack.
 
-Navigate to <http://localhost:16686/search> in your browser to view traces in
-Jaeger.
-
+[Docker Compose file]: ./docker-compose.yaml
+[Quick Start for Tempo]: https://grafana.com/docs/tempo/latest/docker-example/
 [httpie]: https://httpie.io/
