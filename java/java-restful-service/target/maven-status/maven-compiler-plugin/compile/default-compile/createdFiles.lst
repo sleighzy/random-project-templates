@@ -1,9 +1,0 @@
-io/sleighzy/orders/rest/impl/dto/Order.class
-io/sleighzy/server/application/Main.class
-io/sleighzy/application/ServiceTestApplication.class
-io/sleighzy/orders/service/OrdersService.class
-io/sleighzy/App.class
-io/sleighzy/inventory/service/InventoryService.class
-io/sleighzy/inventory/rest/impl/InventoryResource.class
-io/sleighzy/orders/rest/impl/OrdersResource.class
-io/sleighzy/inventory/rest/impl/dto/Inventory.class

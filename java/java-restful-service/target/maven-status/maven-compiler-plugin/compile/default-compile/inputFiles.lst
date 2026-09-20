@@ -1,9 +1,0 @@
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/App.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/application/ServiceTestApplication.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/inventory/rest/impl/InventoryResource.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/inventory/rest/impl/dto/Inventory.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/inventory/service/InventoryService.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/orders/rest/impl/OrdersResource.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/orders/rest/impl/dto/Order.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/orders/service/OrdersService.java
-/Users/simonl/github/clean/random-project-templates/java/java-restful-service/src/main/java/io/sleighzy/server/application/Main.java
