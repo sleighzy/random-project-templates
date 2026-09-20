@@ -2,9 +2,9 @@ package io.sleighzy.inventory.service;
 
 import java.util.Set;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.WebTarget;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -17,7 +17,7 @@ import io.sleighzy.inventory.rest.impl.dto.Inventory;
 
 public class InventoryService {
 
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(InventoryService.class);
 
     @WithSpan
     public Set<Inventory> getInventory() {

@@ -3,7 +3,7 @@ package io.sleighzy.application;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.core.Application;
 
 import io.sleighzy.inventory.rest.impl.InventoryResource;
 import io.sleighzy.orders.rest.impl.OrdersResource;

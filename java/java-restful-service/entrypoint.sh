@@ -1,6 +1,7 @@
 #!/bin/bash
 
-java -javaagent:./opentelemetry-javaagent-all.jar \
+java -javaagent:./opentelemetry-javaagent.jar \
+    "$JAVA_OPTS" \
     -Dotel.javaagent.enabled=true \
     -Dotel.traces.exporter=otlp \
     -Dotel.metrics.exporter=none \
