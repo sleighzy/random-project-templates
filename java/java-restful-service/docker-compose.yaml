@@ -3,20 +3,32 @@ x-logging: &default-logging
     max-size: '5m'
 
 services:
-  restful-app:
-    image: java-restful-service:1.0-SNAPSHOT
+  orders-service:
+    image: orders-service:1.0-SNAPSHOT
     logging: *default-logging
     ports:
-      - 8080:8080
+      - 8081:8080
     environment:
       OTEL_JAVAAGENT_ENABLED: 'true'
       OTEL_TRACES_EXPORTER: otlp
       OTEL_METRICS_EXPORTER: none
       OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
-      OTEL_RESOURCE_ATTRIBUTES: service.name=restful-app
+      OTEL_RESOURCE_ATTRIBUTES: service.name=orders-service
       # Enabling instrumentation for the Grizzly HTTP server will provide
       # detailed trace information for all requests handled by the server.
       # This will additionally ensure that spans created for requests handled
       # by the server will be joined in the trace. For example, calls from the
       # Orders service to the Inventory service.
       OTEL_INSTRUMENTATION_GRIZZLY_ENABLED: 'true'
+
+  inventory-service:
+    image: inventory-service:1.0-SNAPSHOT
+    logging: *default-logging
+    ports:
+      - 8082:8080
+    environment:
+      OTEL_JAVAAGENT_ENABLED: 'true'
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_METRICS_EXPORTER: none
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
+      OTEL_RESOURCE_ATTRIBUTES: service.name=inventory-service

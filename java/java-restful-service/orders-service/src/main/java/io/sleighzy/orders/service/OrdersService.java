@@ -47,7 +47,7 @@ public class OrdersService {
 
         try {
             final Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);
-            final WebTarget target = client.target("http://localhost:8080/inventory");
+            final WebTarget target = client.target("http://inventory-service:8080/inventory");
             final Inventory inventory = target.path(order.getProductId()).request(MediaType.APPLICATION_JSON)
                     .get(Inventory.class);
             LOGGER.info(inventory);

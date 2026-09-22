@@ -2,10 +2,6 @@ package io.sleighzy.inventory.service;
 
 import java.util.Set;
 
-import jakarta.ws.rs.client.Client;
-import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.client.WebTarget;
-
 import com.google.common.collect.ImmutableSet;
 
 import org.apache.logging.log4j.LogManager;
@@ -42,9 +38,9 @@ public class InventoryService {
     }
 
     @WithSpan
-    public Inventory updateInventory(final Inventory inventory) {
-        Span.current().setAttribute("inventory.id", inventory.getId());
-        LOGGER.info("Updating inventory for id: {}", inventory.getId());
+    public Inventory updateInventory(final String id, final Inventory inventory) {
+        Span.current().setAttribute("inventory.id", id);
+        LOGGER.info("Updating inventory for id: {}", id);
 
         return inventory;
     }
