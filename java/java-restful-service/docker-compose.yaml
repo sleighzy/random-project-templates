@@ -32,3 +32,15 @@ services:
       OTEL_METRICS_EXPORTER: none
       OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
       OTEL_RESOURCE_ATTRIBUTES: service.name=inventory-service
+
+  users-service:
+    image: users-service:1.0-SNAPSHOT
+    logging: *default-logging
+    ports:
+      - 8083:8080
+    environment:
+      OTEL_JAVAAGENT_ENABLED: 'true'
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_METRICS_EXPORTER: none
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
+      OTEL_RESOURCE_ATTRIBUTES: service.name=users-service
