@@ -4,3 +4,5 @@
 /java/java-restful-service/inventory-service/log/
 /java/java-restful-service/orders-service/target/
 /java/java-restful-service/orders-service/log/
+/java/java-restful-service/users-service/target/
+/java/java-restful-service/users-service/log/
